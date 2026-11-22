@@ -1,0 +1,64 @@
+name: Import both eCoCane price lists
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out E_PRICE
+        uses: actions/checkout@v4
+
+      - name: Download source repositories
+        run: |
+          git clone --depth 1 https://github.com/blvllxlam/ECONE.git /tmp/ECONE
+          git clone --depth 1 https://github.com/blvllxlam/ECORN.git /tmp/ECORN
+
+      - name: Copy both complete price lists
+        run: |
+          rm -rf ECONE ECORN
+          mkdir -p ECONE ECORN
+          cp -a /tmp/ECONE/. ECONE/
+          cp -a /tmp/ECORN/. ECORN/
+          rm -rf ECONE/.git ECORN/.git
+
+      - name: Create repository landing page
+        run: |
+          cat > index.html <<'HTML'
+          <!doctype html>
+          <html lang="ru">
+          <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>eCoCane — прайс-листы</title>
+          <style>
+          *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:#f4f7f2;color:#203329;font-family:Arial,sans-serif}
+          main{width:min(620px,100%);padding:36px;border-radius:18px;background:#fff;box-shadow:0 12px 40px #20332914}
+          h1{margin:0 0 10px;font-size:28px}p{color:#617168;line-height:1.5}
+          a{display:block;margin-top:16px;padding:18px 20px;border:1px solid #dce7dd;border-radius:12px;color:#245c3c;text-decoration:none;font-size:18px;font-weight:700}
+          a:hover{background:#f2f8f2;border-color:#9bbda1}
+          </style>
+          </head>
+          <body><main><h1>Прайс-листы eCoCane</h1><p>Выберите нужный прайс-лист:</p><a href="./ECONE/">Прайс ECONE — сахарный тростник</a><a href="./ECORN/">Прайс ECORN — кукурузный крахмал</a></main></body>
+          </html>
+          HTML
+          cat > README.md <<'MD'
+          # eCoCane — прайс-листы
+
+          - [ECONE — сахарный тростник](./ECONE/)
+          - [ECORN — кукурузный крахмал](./ECORN/)
+
+          Оба прайс-листа перенесены из исходных репозиториев без изменения файлов.
+          MD
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Import ECONE and ECORN price lists"
+          git push
