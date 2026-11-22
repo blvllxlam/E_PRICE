@@ -8,10 +8,18 @@ footer,
   color: #e9efe9;
 }
 
-/* Размер логотипа в подвале. */
+/* Логотип и условия заказа располагаются рядом. */
+.ecocane-footer__content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 36px;
+}
+
 .ecocane-footer .ecocane-brand {
   display: inline-flex;
   align-items: center;
+  flex: 0 0 150px;
   width: 150px;
   min-height: 48px;
   margin: 0;
@@ -26,6 +34,21 @@ footer,
   width: 100%;
   height: auto;
   max-width: 150px;
+}
+
+.ecocane-footer__terms {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 780px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ecocane-footer__terms strong {
+  margin-bottom: 2px;
+  font-size: 15px;
 }
 
 /* Клавиатурный фокус на логотипе в шапке и подвале. */
@@ -78,25 +101,14 @@ footer,
     padding: 28px 18px !important;
   }
 
-  .ecocane-footer > .wp-block-group {
+  .ecocane-footer__content {
     align-items: flex-start;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
   }
 
-  .ecocane-footer .wp-block-navigation {
-    justify-content: flex-start;
-    width: 100%;
-  }
-
-  .ecocane-footer .wp-block-navigation__container {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 6px;
-    width: 100%;
-  }
-
-  .ecocane-footer .wp-block-navigation-item__content {
-    padding: 3px 0;
+  .ecocane-footer__terms {
+    max-width: 100%;
+    font-size: 13px;
   }
 }
