@@ -10,10 +10,13 @@ footer,
 
 /* Логотип и условия заказа располагаются рядом. */
 .ecocane-footer__content {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start !important;
   justify-content: flex-start;
   gap: 36px;
+  width: 100%;
 }
 
 .ecocane-footer .ecocane-brand {
@@ -38,9 +41,11 @@ footer,
 
 .ecocane-footer__terms {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: 4px;
-  max-width: 780px;
+  max-width: 900px;
+  min-width: 0;
   color: #fff;
   font-size: 14px;
   line-height: 1.5;
@@ -102,13 +107,22 @@ footer,
   }
 
   .ecocane-footer__content {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 18px;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    gap: 16px;
+  }
+
+  .ecocane-footer .ecocane-brand {
+    flex: 0 0 112px;
+    width: 112px;
   }
 
   .ecocane-footer__terms {
-    max-width: 100%;
-    font-size: 13px;
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
   }
 }
