@@ -1822,6 +1822,65 @@ tr[id^="category-"] { scroll-margin-top: 110px; }
 }
 </style>
 
+
+<style id="eprice-mobile-table-fix">
+/* Мобильная адаптация прайс-листа: прокрутка вместо сжатия колонок */
+@media (max-width: 768px) {
+  figure.wp-block-table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    position: relative;
+    padding-bottom: 8px;
+  }
+  figure.wp-block-table::after {
+    content: "Прокрутите таблицу вправо, чтобы увидеть остальные столбцы →";
+    display: block;
+    width: max-content;
+    padding: 7px 10px;
+    margin-top: 6px;
+    color: #526052;
+    background: #f1f5ed;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  figure.wp-block-table > table.has-fixed-layout {
+    width: max-content !important;
+    min-width: 900px;
+    table-layout: auto !important;
+  }
+  figure.wp-block-table th,
+  figure.wp-block-table td {
+    box-sizing: border-box;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 8px 10px;
+  }
+  figure.wp-block-table th:nth-child(1),
+  figure.wp-block-table td:nth-child(1) { min-width: 90px; }
+  figure.wp-block-table th:nth-child(2),
+  figure.wp-block-table td:nth-child(2) { min-width: 155px; }
+  figure.wp-block-table th:nth-child(3),
+  figure.wp-block-table td:nth-child(3) {
+    min-width: 240px;
+    max-width: 300px;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+  figure.wp-block-table th:nth-child(4),
+  figure.wp-block-table td:nth-child(4) { min-width: 170px; }
+  figure.wp-block-table th:nth-child(5),
+  figure.wp-block-table td:nth-child(5) { min-width: 110px; }
+  figure.wp-block-table td img {
+    max-width: 80px;
+    height: auto;
+  }
+}
+</style>
 </head>
 
 <body data-cmplz="1" class="wp-singular page-template-default page page-id-596 logged-in admin-bar wp-custom-logo wp-embed-responsive wp-theme-organic-store wp-child-theme-ecocane-child theme-organic-store woocommerce-uses-block-theme woocommerce-block-theme-has-button-styles woocommerce-js customize-support cmplz-functional cmplz-eu cmplz-optin" style="padding-right: 0px;"><div id="cmplz-cookiebanner-container"><div id="cmplz-cookiebanner-1-optin" class="cmplz-cookiebanner banner-1 %d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b8-%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b4%d0%b5%d0%bd%d1%86%d0%b8%d0%b0%d0%bb%d1%8c%d0%bd%d0%be%d1%81%d1%82%d0%b8 optin cmplz-bottom-right cmplz-categories-type-view-preferences cmplz-dismissed" aria-modal="true" data-nosnippet="true" role="dialog" aria-live="polite" aria-labelledby="cmplz-header-1-optin" aria-describedby="cmplz-message-1-optin">
