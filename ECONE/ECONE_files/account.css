@@ -1,0 +1,201 @@
+/* Стили страницы личного кабинета и формы входа WooCommerce. */
+
+/* Убирает крупную стандартную обложку над содержимым личного кабинета. */
+body.woocommerce-account .wp-block-cover {
+  display: none;
+}
+
+/* Карточка личного кабинета: ограничивает ширину и центрирует содержимое. */
+/* Авторизованный личный кабинет использует доступную ширину экрана,
+   но не растягивается более чем до 1600px. Форма входа остаётся компактной. */
+body.logged-in.woocommerce-account .entry-content > .woocommerce {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  max-width: 1600px;
+  margin: clamp(32px, 5vw, 72px) auto;
+  padding: clamp(22px, 3vw, 36px);
+  border: 1px solid var(--ecocane-border);
+  border-radius: var(--ecocane-radius);
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(29, 70, 53, .07);
+}
+
+
+/* Заголовок входа внутри карточки личного кабинета. */
+body.woocommerce-account .entry-content > .woocommerce > h2 {
+  margin: 0 0 24px;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+}
+
+/* Форма не должна выходить за границы карточки или стандартной колонки. */
+body.woocommerce-account .woocommerce-form-login.login {
+  float: none;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Поля входа занимают всю ширину карточки и имеют удобную высоту на телефоне. */
+body.woocommerce-account .woocommerce-form-login .form-row--wide input,
+body.woocommerce-account .woocommerce-form-login .password-input,
+body.woocommerce-account .woocommerce-form-login .password-input input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+body.woocommerce-account .woocommerce-form-login .form-row--wide {
+  margin-bottom: 18px;
+}
+
+body.woocommerce-account .woocommerce-form-login .form-row--wide input {
+  min-height: 48px;
+}
+
+/* Выравнивает запоминание входа и кнопку без переполнения на узком экране. */
+body.woocommerce-account .woocommerce-form-login p.form-row:not(.form-row-wide) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+body.woocommerce-account .woocommerce-form-login__rememberme {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+body.woocommerce-account .woocommerce-form-login__submit {
+  margin-left: auto;
+}
+
+/* Ссылка восстановления пароля отделена от основных элементов формы. */
+body.woocommerce-account .woocommerce-LostPassword {
+  margin: 20px 0 0;
+}
+
+body.woocommerce-account .woocommerce-LostPassword a {
+  color: var(--ecocane-green);
+  font-weight: 600;
+}
+
+/* На узких телефонах кнопка располагается на отдельной строке и легко нажимается. */
+@media (max-width: 480px) {
+  body.woocommerce-account .woocommerce-form-login__submit {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* Навигация авторизованного личного кабинета eCoCane. */
+body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation {
+  box-sizing: border-box;
+  float: left;
+  width: 30%;
+  padding: 10px;
+  border: 1px solid #e4ece6;
+  border-radius: 14px;
+  background: #f6f9f6;
+}
+
+body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation li {
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation li a {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: #285b43;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
+}
+
+body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation li a:hover {
+  border-color: #d8e8dc;
+  background: #fff;
+  color: #1e6a43;
+  transform: translateX(2px);
+}
+
+body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation li.is-active a {
+  border-color: #cfe3d4;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(29, 70, 53, .06);
+  color: #17633d;
+  font-weight: 700;
+}
+
+body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation li a:focus-visible {
+  outline: 3px solid rgba(47, 166, 74, .3);
+  outline-offset: 2px;
+}
+
+/* Контент остаётся рядом с меню и не сжимается из-за длинных таблиц или форм. */
+body.logged-in.woocommerce-account .woocommerce-MyAccount-content {
+  box-sizing: border-box;
+  float: right;
+  width: 68%;
+  min-width: 0;
+}
+
+/* На планшетах меню переходит над содержимым и становится компактной сеткой. */
+@media (max-width: 782px) {
+  body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation,
+  body.logged-in.woocommerce-account .woocommerce-MyAccount-content {
+    float: none;
+    width: 100%;
+  }
+
+  body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation {
+    margin-bottom: 22px;
+  }
+
+  body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation li a {
+    min-height: 44px;
+    padding: 10px 12px;
+  }
+
+  body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation li a:hover {
+    transform: none;
+  }
+}
+
+/* На очень узких экранах меню занимает одну колонку, чтобы подписи не теснились. */
+@media (max-width: 360px) {
+  body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
