@@ -28,6 +28,8 @@ jobs:
           cp -a /tmp/ECONE/. ECONE/
           cp -a /tmp/ECORN/. ECORN/
           rm -rf ECONE/.git ECORN/.git
+          # Keep navigation links pointed at the combined E_PRICE pages
+          sed -i 's|https://blvllxlam.github.io/ECONE/|https://blvllxlam.github.io/E_PRICE/ECONE/|g; s|https://blvllxlam.github.io/ECORN/|https://blvllxlam.github.io/E_PRICE/ECORN/|g' ECONE/index.html ECORN/index.html
 
       - name: Create repository landing page
         run: |
@@ -63,5 +65,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
           git commit -m "Import ECONE and ECORN price lists"
           git push
