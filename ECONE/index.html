@@ -1376,6 +1376,154 @@ h1, h2, h3, h4, h5, h6,
   color: #fff !important;
 }
 </style>
+
+<style id="eprice-modern-navigation-2026">
+/* Переключатель между двумя прайс-листами */
+.ecocane-price-switch {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  padding:12px 16px !important;
+  background:#f4f7f1 !important;
+  border-bottom:1px solid #e1e9dc !important;
+  box-shadow:0 3px 12px rgba(25,55,30,.045) !important;
+}
+.ecocane-price-switch__caption {
+  margin:0 5px 0 0 !important;
+  color:#637766 !important;
+  font-size:10px !important;
+  font-weight:800 !important;
+  letter-spacing:.12em !important;
+}
+.ecocane-price-switch__link {
+  position:relative !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:38px !important;
+  padding:8px 18px !important;
+  border:1px solid #d6e1d1 !important;
+  border-radius:12px !important;
+  background:#fff !important;
+  color:#315b38 !important;
+  box-shadow:0 2px 7px rgba(28,62,35,.045) !important;
+  font-size:13px !important;
+  font-weight:700 !important;
+  line-height:1.25 !important;
+  text-decoration:none !important;
+  transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
+}
+.ecocane-price-switch__link:hover {
+  transform:translateY(-1px) !important;
+  border-color:#9fbd9c !important;
+  background:#f8fbf6 !important;
+  color:#214d2b !important;
+  box-shadow:0 5px 14px rgba(28,62,35,.09) !important;
+}
+.ecocane-price-switch__link[aria-current="page"] {
+  border-color:#205a2e !important;
+  background:linear-gradient(135deg,#286b38 0%,#174b29 100%) !important;
+  color:#fff !important;
+  box-shadow:0 4px 12px rgba(25,76,38,.18) !important;
+}
+.ecocane-price-switch__link[aria-current="page"]::after {
+  content:"";
+  position:absolute;
+  right:10px;
+  top:50%;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#b9df83;
+  transform:translateY(-50%);
+}
+
+/* Навигация по категориям каталога */
+.ecocane-header > .ecocane-category-nav {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  min-width:0 !important;
+  padding:8px 4px !important;
+  margin:0 !important;
+}
+.ecocane-header > .ecocane-category-nav a,
+.ecocane-header > .ecocane-category-nav a:visited {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:34px !important;
+  padding:7px 13px !important;
+  border:1px solid rgba(255,255,255,.28) !important;
+  border-radius:9px !important;
+  background:rgba(255,255,255,.10) !important;
+  color:#fff !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  line-height:1.15 !important;
+  letter-spacing:.055em !important;
+  text-decoration:none !important;
+  white-space:nowrap !important;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease !important;
+}
+.ecocane-header > .ecocane-category-nav a:hover,
+.ecocane-header > .ecocane-category-nav a:focus-visible {
+  border-color:rgba(255,255,255,.72) !important;
+  background:rgba(255,255,255,.22) !important;
+  color:#fff !important;
+  transform:translateY(-1px) !important;
+}
+.ecocane-header > .ecocane-category-nav a:focus-visible {
+  outline:2px solid #c7e99b !important;
+  outline-offset:3px !important;
+}
+@media (max-width:782px) {
+  .ecocane-price-switch {
+    gap:6px !important;
+    padding:9px 8px !important;
+  }
+  .ecocane-price-switch__caption { display:none !important; }
+  .ecocane-price-switch__link {
+    min-height:35px !important;
+    padding:7px 12px !important;
+    border-radius:10px !important;
+    font-size:11px !important;
+  }
+  .ecocane-header > .ecocane-category-nav {
+    flex-wrap:nowrap !important;
+    justify-content:flex-start !important;
+    gap:6px !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding:8px 2px 10px !important;
+  }
+  .ecocane-header > .ecocane-category-nav::-webkit-scrollbar { display:none; }
+  .ecocane-header > .ecocane-category-nav a {
+    flex:0 0 auto !important;
+    min-height:32px !important;
+    padding:7px 11px !important;
+    font-size:10px !important;
+  }
+}
+@media (max-width:380px) {
+  .ecocane-price-switch__link {
+    min-height:33px !important;
+    padding:6px 9px !important;
+    font-size:10px !important;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  .ecocane-price-switch__link,
+  .ecocane-header > .ecocane-category-nav a { transition:none !important; }
+}
+</style>
+
 </head>
 
 <body class="wp-singular page-template-default page page-id-475 wp-custom-logo wp-embed-responsive wp-theme-organic-store wp-child-theme-ecocane-child theme-organic-store">
@@ -1387,8 +1535,8 @@ h1, h2, h3, h4, h5, h6,
 
 <div class="ecocane-price-switch" aria-label="Выбор прайс-листа">
   <span class="ecocane-price-switch__caption">Другой прайс</span>
-  <a class="ecocane-price-switch__link" href="https://blvllxlam.github.io/E_PRICE/ECONE/" aria-current="page">Посуда из сахарного тростника</a>
-  <a class="ecocane-price-switch__link" href="https://blvllxlam.github.io/E_PRICE/ECORN/">Посуда из кукурузного крахмала</a>
+  <a class="ecocane-price-switch__link" href="https://e-price.b-lvl-lxl-am-a7b.workers.dev/ECONE/" aria-current="page">Посуда из сахарного тростника</a>
+  <a class="ecocane-price-switch__link" href="https://e-price.b-lvl-lxl-am-a7b.workers.dev/ECORN/">Посуда из кукурузного крахмала</a>
 </div>
 
 <div class="wp-block-group ecocane-header has-global-padding is-content-justification-center is-layout-constrained wp-container-core-group-is-layout-29f85549 wp-block-group-is-layout-constrained" style="padding-top:18px;padding-right:24px;padding-bottom:18px;padding-left:24px">
