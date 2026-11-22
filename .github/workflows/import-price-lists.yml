@@ -2,6 +2,9 @@ name: Import both eCoCane price lists
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/import-price-lists.yml'
 
 permissions:
   contents: write
