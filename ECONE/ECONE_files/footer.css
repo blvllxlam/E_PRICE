@@ -94,11 +94,43 @@ footer,
   color: #e1eedf;
 }
 
-/* Дополнительная подпись или примечание в подвале. */
+/* Подпись о НДС размещается непосредственно под логотипом. */
+.ecocane-footer__brand {
+  display: flex;
+  flex: 0 0 190px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 190px;
+  min-width: 0;
+}
+
+.ecocane-footer .ecocane-brand {
+  display: block;
+  flex: 0 0 150px;
+  width: 150px;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.ecocane-footer .ecocane-brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+}
+
 .ecocane-footer__note {
-  margin: 20px 0 0;
+  display: block;
+  width: 100%;
+  max-width: 190px;
+  margin: 12px 0 0;
   color: #e1eedf;
   font-size: .88rem;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 @media (max-width: 782px) {
@@ -106,20 +138,51 @@ footer,
     padding: 28px 18px !important;
   }
 
+  /* На мобильном весь подвал складывается в одну колонку. */
   .ecocane-footer__content {
-    flex-direction: row !important;
+    display: flex !important;
+    flex-direction: column !important;
     flex-wrap: nowrap !important;
-    align-items: flex-start !important;
-    gap: 16px;
+    align-items: stretch !important;
+    gap: 22px;
+    width: 100%;
+  }
+
+  /* Логотип не участвует в сжатии, подпись получает нормальную ширину. */
+  .ecocane-footer__brand {
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
   }
 
   .ecocane-footer .ecocane-brand {
-    flex: 0 0 112px;
-    width: 112px;
+    flex: 0 0 150px;
+    width: 150px;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .ecocane-footer .ecocane-brand img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+  }
+
+  .ecocane-footer__note {
+    width: 100%;
+    max-width: 280px;
+    margin-top: 10px;
+    font-size: .88rem;
+    line-height: 1.4;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .ecocane-footer__terms {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: none;
     min-width: 0;
     font-size: 12px;
     line-height: 1.4;
