@@ -1483,15 +1483,23 @@ h1, h2, h3, h4, h5, h6,
 }
 @media (max-width:782px) {
   .ecocane-price-switch {
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    align-items:stretch !important;
     gap:6px !important;
     padding:9px 8px !important;
   }
   .ecocane-price-switch__caption { display:none !important; }
   .ecocane-price-switch__link {
+    flex:1 1 0 !important;
+    min-width:0 !important;
     min-height:35px !important;
-    padding:7px 12px !important;
+    padding:7px 6px !important;
     border-radius:10px !important;
-    font-size:11px !important;
+    font-size:10px !important;
+    line-height:1.2 !important;
+    text-align:center !important;
+    white-space:normal !important;
   }
   .ecocane-header > .ecocane-category-nav {
     flex-wrap:nowrap !important;
