@@ -1531,35 +1531,39 @@ h1, h2, h3, h4, h5, h6,
 
 
 <style id="ecocane-price-switch-compact-refinement">
-/* Компактный переключатель прайс-листов: не затрагивает остальную шапку */
+/* Широкий переключатель прайс-листов: уменьшаем только высоту */
 .ecocane-price-switch {
-  width: min(760px, 58vw) !important;
-  max-width: calc(100% - 32px) !important;
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
   margin: 0 auto !important;
-  padding: 7px 10px !important;
+  padding: 4px 10px !important;
   gap: 8px !important;
   border: 0 !important;
   border-radius: 0 0 14px 14px !important;
   box-shadow: none !important;
 }
+.ecocane-price-switch__caption {
+  display: none !important;
+}
 .ecocane-price-switch__link {
   flex: 1 1 0 !important;
   min-width: 0 !important;
-  min-height: 34px !important;
-  padding: 6px 14px !important;
+  min-height: 28px !important;
+  padding: 3px 12px !important;
   border-radius: 999px !important;
 }
 @media (max-width: 782px) {
   .ecocane-price-switch {
-    width: calc(100% - 16px) !important;
-    max-width: 560px !important;
-    padding: 5px 6px !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 4px 8px !important;
     gap: 6px !important;
     border-radius: 0 0 12px 12px !important;
   }
   .ecocane-price-switch__link {
-    min-height: 29px !important;
-    padding: 4px 6px !important;
+    min-height: 25px !important;
+    padding: 3px 6px !important;
     border-radius: 999px !important;
     font-size: 10px !important;
     line-height: 1.1 !important;
@@ -1567,8 +1571,8 @@ h1, h2, h3, h4, h5, h6,
 }
 @media (max-width: 380px) {
   .ecocane-price-switch__link {
-    min-height: 27px !important;
-    padding: 4px 5px !important;
+    min-height: 24px !important;
+    padding: 3px 5px !important;
     font-size: 9px !important;
   }
 }
@@ -1583,7 +1587,6 @@ h1, h2, h3, h4, h5, h6,
 <a class="skip-link screen-reader-text" id="wp-skip-link">Перейти к содержимому</a><div class="wp-site-blocks"><header class="wp-block-template-part">
 
 <div class="ecocane-price-switch" aria-label="Выбор прайс-листа">
-  <span class="ecocane-price-switch__caption">Другой прайс</span>
   <a class="ecocane-price-switch__link" href="https://e-price.b-lvl-lxl-am-a7b.workers.dev/ECONE/">Посуда из сахарного тростника</a>
   <a class="ecocane-price-switch__link" href="https://e-price.b-lvl-lxl-am-a7b.workers.dev/ECORN/" aria-current="page">Посуда из кукурузного крахмала</a>
 </div>
