@@ -578,3 +578,203 @@
   .ecocane-header-messenger { min-width:25px; padding:2px 4px; }
   .ecocane-header-email__address { max-width:68px; font-size:7px; }
 }
+
+/* Итоговая компоновка шапки: контакты слева, вертикальные мессенджеры справа. */
+.ecocane-header-contacts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 40px;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  align-content: center;
+  column-gap: 8px;
+  row-gap: 3px;
+  min-width: 0;
+  margin-right: 0;
+}
+
+.ecocane-header-phone {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.ecocane-header-email {
+  grid-column: 1;
+  grid-row: 2;
+  min-width: 0;
+}
+
+.ecocane-header-messengers {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  justify-self: end;
+  margin: 0;
+}
+
+.ecocane-header-messengers__links {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3px;
+}
+
+.ecocane-header-messenger {
+  box-sizing: border-box;
+  justify-content: center;
+  width: 40px;
+  min-width: 40px;
+  min-height: 21px;
+  padding: 2px 3px;
+  border-radius: 6px;
+  gap: 0;
+}
+
+.ecocane-header-messenger__icon {
+  display: none;
+}
+
+.ecocane-header-email__details,
+.ecocane-header-phone__details {
+  min-width: 0;
+}
+
+.ecocane-header-email__address {
+  display: block;
+  max-width: none;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Возвращаем компактную высоту верхней части шапки. */
+@media (max-width: 1100px) {
+  .ecocane-header {
+    grid-template-rows: 90px;
+  }
+
+  .ecocane-header-contacts {
+    column-gap: 6px;
+    row-gap: 2px;
+  }
+
+  .ecocane-header-messengers__links {
+    gap: 2px;
+  }
+
+  .ecocane-header-messenger {
+    min-height: 20px;
+  }
+}
+
+@media (max-width: 782px) {
+  .ecocane-header-contacts {
+    grid-template-columns: minmax(0, 1fr) 34px;
+    column-gap: 4px;
+  }
+
+  .ecocane-header-messenger {
+    width: 34px;
+    min-width: 34px;
+    min-height: 19px;
+    font-size: 9px;
+  }
+
+  .ecocane-header-phone__number {
+    font-size: 10px;
+  }
+
+  .ecocane-header-email__address {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 520px) {
+  .ecocane-header {
+    grid-template-rows: 78px;
+  }
+
+  .ecocane-header-contacts {
+    grid-template-columns: minmax(0, 1fr) 30px;
+    column-gap: 3px;
+    row-gap: 2px;
+  }
+
+  .ecocane-header-phone,
+  .ecocane-header-email {
+    gap: 2px;
+  }
+
+  .ecocane-header-phone__icon,
+  .ecocane-header-email__icon {
+    flex-basis: 18px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .ecocane-header-phone__icon svg,
+  .ecocane-header-email__icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .ecocane-header-phone__number {
+    font-size: 9px;
+  }
+
+  .ecocane-header-email__address {
+    font-size: 8px;
+    line-height: 1.1;
+  }
+
+  .ecocane-header-messenger {
+    width: 30px;
+    min-width: 30px;
+    min-height: 18px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 359px) {
+  .ecocane-header {
+    grid-template-rows: 72px;
+  }
+
+  .ecocane-header-contacts {
+    grid-template-columns: minmax(0, 1fr) 28px;
+    column-gap: 2px;
+  }
+
+  .ecocane-header-email__icon {
+    display: none;
+  }
+
+  .ecocane-header-phone__icon {
+    flex-basis: 16px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .ecocane-header-phone__icon svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .ecocane-header-phone__number {
+    font-size: 8px;
+  }
+
+  .ecocane-header-email__address {
+    font-size: 7.5px;
+    overflow-wrap: anywhere;
+  }
+
+  .ecocane-header-messenger {
+    width: 28px;
+    min-width: 28px;
+    min-height: 17px;
+    font-size: 7.5px;
+  }
+}
+
