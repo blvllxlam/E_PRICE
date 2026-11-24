@@ -546,3 +546,46 @@
  .ecocane-header > .ecocane-category-nav { gap:3px 8px !important; }
  .ecocane-header > .ecocane-category-nav a { font-size:10px !important; }
 }
+
+/* Возвращаем видимые значки и фирменные цвета вертикальных кнопок. */
+.ecocane-header .ecocane-header-messenger {
+  justify-content: flex-start !important;
+  gap: 5px !important;
+  padding: 2px 4px !important;
+  background: rgba(255,255,255,.08) !important;
+}
+.ecocane-header .ecocane-header-messenger__icon {
+  display: inline-flex !important;
+  flex: 0 0 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+.ecocane-header .ecocane-header-messenger--whatsapp .ecocane-header-messenger__icon {
+  background: #25D366 !important;
+}
+.ecocane-header .ecocane-header-messenger--telegram .ecocane-header-messenger__icon {
+  background: #229ED9 !important;
+}
+.ecocane-header .ecocane-header-messenger--max .ecocane-header-messenger__icon {
+  background: #168DE2 !important;
+}
+.ecocane-header .ecocane-header-messenger__name {
+  display: inline !important;
+  color: #fff !important;
+}
+@media (max-width: 782px) {
+  .ecocane-header .ecocane-header-messenger__icon {
+    flex-basis: 17px !important;
+    width: 17px !important;
+    height: 17px !important;
+    font-size: 9px !important;
+  }
+}
+
