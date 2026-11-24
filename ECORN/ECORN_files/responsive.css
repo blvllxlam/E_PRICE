@@ -497,277 +497,52 @@
 }
 
 
-/* Шапка до 1100px: меню сворачивается, контакты остаются над корзиной. */
-@media (max-width: 1100px) {
-  .ecocane-header { grid-template-columns: minmax(150px, 1fr) auto auto; grid-template-rows: 90px; }
-  .ecocane-header > .wp-block-group.is-layout-flex:nth-child(2) {
-    grid-column: 2; grid-row: 1; min-width: 0; gap: 4px; padding-right: 8px; padding-left: 8px;
-  }
-  .ecocane-header .wp-block-navigation { grid-column: 3; grid-row: 1; justify-self: end; width: auto; }
-  .ecocane-header .wp-block-navigation__responsive-container-open { display: flex !important; }
-  .ecocane-header .wp-block-navigation__responsive-container:not(.is-menu-open) { display: none !important; }
-  .ecocane-header .wp-block-navigation__responsive-container.is-menu-open { display: flex !important; }
-}
-
-/* На телефонах освобождаем место под адрес почты и иконки действий. */
-@media (max-width: 520px) {
-  .ecocane-header { grid-template-columns: minmax(112px, 1fr) auto auto; grid-template-rows: 78px; }
-  .ecocane-header > .wp-block-group.is-layout-flex:nth-child(2) { gap: 2px; padding-right: 3px; padding-left: 3px; }
-  .ecocane-header-contacts { gap: 2px; margin-right: 0; }
-  .ecocane-header-phone, .ecocane-header-email { gap: 3px; }
-  .ecocane-header-phone__icon, .ecocane-header-email__icon { flex-basis: 22px; width: 22px; height: 22px; }
-  .ecocane-header-phone__number { font-size: 10px; }
-  .ecocane-header-email__address { font-size: 8.5px; }
-}
-
-/* На очень узких экранах оставляем короткие контакты и уменьшаем служебные иконки. */
-@media (max-width: 359px) {
-  .ecocane-header { grid-template-columns: minmax(92px, 1fr) auto auto; grid-template-rows: 72px; }
-  .ecocane-header-contacts { gap: 1px; }
-  .ecocane-header-email__icon { display: none; }
-  .ecocane-header-phone__icon { flex-basis: 19px; width: 19px; height: 19px; }
-  .ecocane-header-phone__icon svg { width: 15px; height: 15px; }
-  .ecocane-header-phone__number { font-size: 9px; }
-  .ecocane-header-email__address { font-size: 7.5px; }
-  .ecocane-header .wc-block-mini-cart__button { min-width: 30px; padding: 2px !important; }
-  .ecocane-header .wc-block-mini-cart__icon,
-  .ecocane-header .wc-block-customer-account__link svg,
-  .ecocane-header .wc-block-customer-account__link img { width: 24px; height: 24px; }
-  .ecocane-header .wp-block-navigation__responsive-container-open { padding: 3px !important; }
-}
-
-
-/* Мессенджеры и высота шапки с учётом дополнительной строки контактов. */
-@media (max-width:1100px) {
-  .ecocane-header { grid-template-rows:112px; }
-  .ecocane-header-messengers { gap:3px; margin-top:1px; }
-  .ecocane-header-messengers__label { font-size:8px; }
-  .ecocane-header-messenger { min-height:26px; padding-right:6px; gap:4px; }
-  .ecocane-header-messenger__icon { flex-basis:20px; width:20px; height:20px; }
-}
-@media (max-width:520px) {
-  .ecocane-header { grid-template-rows:100px; }
-  .ecocane-header-messengers { gap:2px; margin-top:1px; }
-  .ecocane-header-messengers__label { font-size:7px; letter-spacing:.06em; }
-  .ecocane-header-messengers__links { gap:4px; }
-  .ecocane-header-messenger { min-height:22px; gap:3px; padding:2px 5px 2px 2px; font-size:8px; }
-  .ecocane-header-messenger__icon { flex-basis:17px; width:17px; height:17px; }
-  .ecocane-header-messenger__icon svg { width:11px; height:11px; }
-}
-@media (max-width:359px) {
-  .ecocane-header { grid-template-rows:94px; }
-  .ecocane-header-messengers__label { font-size:6.5px; }
-  .ecocane-header-messengers__links { gap:3px; }
-  .ecocane-header-messenger { justify-content:center; min-width:25px; min-height:20px; padding:2px 4px; }
-  .ecocane-header-messenger__icon { display:none; }
-  .ecocane-header-messenger__name { font-size:7.5px; }
-}
-
-
-/* Узкие телефоны: сокращённые плашки мессенджеров и защита почты от наложения. */
-@media (max-width:420px) {
-  .ecocane-header-messenger { justify-content:center; min-width:27px; gap:0; padding:3px 5px; }
-  .ecocane-header-messenger__icon { display:none; }
-  .ecocane-header-messenger--whatsapp { border-color:rgba(37,211,102,.48); background:rgba(37,211,102,.18); }
-  .ecocane-header-messenger--telegram { border-color:rgba(34,158,217,.48); background:rgba(34,158,217,.18); }
-  .ecocane-header-messenger--max { border-color:rgba(22,141,226,.48); background:rgba(22,141,226,.18); }
-  .ecocane-header-email__details { min-width:0; }
-  .ecocane-header-email__address { display:block; max-width:clamp(58px, calc(100vw - 290px), 120px); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-}
-@media (max-width:359px) {
-  .ecocane-header-messenger { min-width:25px; padding:2px 4px; }
-  .ecocane-header-email__address { max-width:68px; font-size:7px; }
-}
-
-
-/* Финальная структура шапки прайса: логотип, контакты, вертикальные мессенджеры; навигация отдельной строкой. */
+/* Компоновка шапки прайс-листа: логотип слева, контакты справа от него, мессенджеры в крайнем правом столбце, меню ниже. */
 .ecocane-header {
-  display: grid !important;
-  grid-template-columns: 180px minmax(0, 1fr) 50px !important;
-  grid-template-rows: 34px 34px auto !important;
-  grid-template-areas:
-    "brand phone messengers"
-    "brand email messengers"
-    "nav nav nav" !important;
-  align-items: center !important;
-  column-gap: 12px !important;
-  row-gap: 2px !important;
-  padding: 8px 18px !important;
-  box-sizing: border-box !important;
+  display:grid !important;
+  grid-template-columns:180px minmax(0,1fr) 52px !important;
+  grid-template-rows:34px 34px auto !important;
+  grid-template-areas:"brand contacts messengers" "brand contacts messengers" "nav nav nav" !important;
+  align-items:center !important; column-gap:16px !important; row-gap:3px !important;
+  padding:10px 24px !important; box-sizing:border-box !important;
 }
-.ecocane-header > .ecocane-brand {
-  grid-area: brand !important;
-  justify-self: start !important;
-  align-self: center !important;
-  width: 170px !important;
-  max-width: 100% !important;
-  height: auto !important;
-  max-height: 68px !important;
-  padding: 0 !important;
-  margin: 0 !important;
+.ecocane-header > .ecocane-brand { grid-area:brand !important; justify-self:start !important; align-self:center !important; width:170px !important; max-width:100% !important; height:auto !important; max-height:68px !important; padding:0 !important; margin:0 !important; }
+.ecocane-header > .ecocane-brand img { display:block !important; width:100% !important; max-width:100% !important; max-height:68px !important; height:auto !important; object-fit:contain !important; }
+.ecocane-header > .ecocane-category-nav { grid-area:nav !important; display:flex !important; justify-content:center !important; flex-wrap:wrap !important; gap:4px 14px !important; width:100% !important; min-width:0 !important; margin:0 !important; padding:5px 0 0 !important; }
+.ecocane-header > .wp-block-group.is-nowrap.is-layout-flex { display:contents !important; }
+.ecocane-header .ecocane-header-contacts { grid-area:contacts !important; display:grid !important; grid-template-columns:max-content !important; grid-template-rows:34px 34px !important; align-content:center !important; justify-content:end !important; justify-self:end !important; align-self:center !important; gap:0 !important; min-width:0 !important; margin:0 !important; }
+.ecocane-header .ecocane-header-phone,.ecocane-header .ecocane-header-email { display:flex !important; align-items:center !important; justify-self:end !important; min-width:0 !important; gap:7px !important; margin:0 !important; white-space:nowrap !important; }
+.ecocane-header .ecocane-header-phone__details,.ecocane-header .ecocane-header-email__details { display:flex !important; flex-direction:column !important; min-width:0 !important; gap:1px !important; }
+.ecocane-header .ecocane-header-phone__label,.ecocane-header .ecocane-header-email__label { display:none !important; }
+.ecocane-header .ecocane-header-phone__number,.ecocane-header .ecocane-header-email__address { display:block !important; max-width:none !important; overflow:visible !important; text-overflow:clip !important; white-space:nowrap !important; overflow-wrap:normal !important; line-height:1.2 !important; }
+.ecocane-header .ecocane-header-messengers { grid-area:messengers !important; display:flex !important; align-self:center !important; justify-self:end !important; margin:0 !important; min-width:0 !important; }
+.ecocane-header .ecocane-header-messengers__links { display:flex !important; flex-direction:column !important; align-items:stretch !important; gap:3px !important; }
+.ecocane-header .ecocane-header-messenger { display:inline-flex !important; justify-content:center !important; align-items:center !important; box-sizing:border-box !important; width:46px !important; min-width:46px !important; min-height:19px !important; padding:2px 4px !important; border-radius:6px !important; gap:0 !important; }
+.ecocane-header .ecocane-header-messenger__icon { display:none !important; }
+.ecocane-header .ecocane-header-messenger__name { display:inline !important; }
+.ecocane-header .wc-block-mini-cart,.ecocane-header .wp-block-woocommerce-mini-cart,.ecocane-header .wp-block-woocommerce-customer-account { display:none !important; }
+@media (max-width:820px) {
+ .ecocane-header { grid-template-columns:132px minmax(0,1fr) 44px !important; grid-template-rows:31px 31px auto !important; column-gap:8px !important; row-gap:2px !important; padding:7px 12px !important; }
+ .ecocane-header > .ecocane-brand { width:126px !important; max-height:58px !important; }
+ .ecocane-header > .ecocane-brand img { max-height:58px !important; }
+ .ecocane-header .ecocane-header-contacts { grid-template-rows:31px 31px !important; }
+ .ecocane-header .ecocane-header-phone,.ecocane-header .ecocane-header-email { gap:5px !important; }
+ .ecocane-header .ecocane-header-phone__icon,.ecocane-header .ecocane-header-email__icon { flex:0 0 21px !important; width:21px !important; height:21px !important; }
+ .ecocane-header .ecocane-header-phone__icon svg,.ecocane-header .ecocane-header-email__icon svg { width:15px !important; height:15px !important; }
+ .ecocane-header .ecocane-header-messenger { width:42px !important; min-width:42px !important; min-height:18px !important; }
+ .ecocane-header > .ecocane-category-nav { gap:4px 10px !important; padding-top:4px !important; }
+ .ecocane-header > .ecocane-category-nav a { font-size:11px !important; }
 }
-.ecocane-header > .ecocane-brand img {
-  display: block !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  max-height: 68px !important;
-  height: auto !important;
-  object-fit: contain !important;
+@media (max-width:420px) {
+ .ecocane-header { grid-template-columns:112px minmax(0,1fr) 38px !important; grid-template-rows:29px 29px auto !important; column-gap:6px !important; padding:6px 9px !important; }
+ .ecocane-header > .ecocane-brand { width:108px !important; max-height:50px !important; }
+ .ecocane-header > .ecocane-brand img { max-height:50px !important; }
+ .ecocane-header .ecocane-header-contacts { grid-template-rows:29px 29px !important; }
+ .ecocane-header .ecocane-header-phone,.ecocane-header .ecocane-header-email { gap:3px !important; }
+ .ecocane-header .ecocane-header-phone__icon,.ecocane-header .ecocane-header-email__icon { flex:0 0 17px !important; width:17px !important; height:17px !important; }
+ .ecocane-header .ecocane-header-phone__icon svg,.ecocane-header .ecocane-header-email__icon svg { width:13px !important; height:13px !important; }
+ .ecocane-header .ecocane-header-messenger { width:36px !important; min-width:36px !important; min-height:17px !important; }
+ .ecocane-header .ecocane-header-messengers__links { gap:2px !important; }
+ .ecocane-header > .ecocane-category-nav { gap:3px 8px !important; }
+ .ecocane-header > .ecocane-category-nav a { font-size:10px !important; }
 }
-.ecocane-header > .ecocane-category-nav {
-  grid-area: nav !important;
-  display: flex !important;
-  justify-content: center !important;
-  flex-wrap: wrap !important;
-  gap: 4px 14px !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  margin: 0 !important;
-  padding: 5px 0 0 !important;
-}
-.ecocane-header > .wp-block-group.is-nowrap.is-layout-flex {
-  display: contents !important;
-}
-.ecocane-header .ecocane-header-contacts {
-  display: contents !important;
-}
-.ecocane-header .ecocane-header-phone {
-  grid-area: phone !important;
-  display: flex !important;
-  align-items: center !important;
-  min-width: 0 !important;
-  gap: 7px !important;
-  margin: 0 !important;
-}
-.ecocane-header .ecocane-header-email {
-  grid-area: email !important;
-  display: flex !important;
-  align-items: center !important;
-  min-width: 0 !important;
-  gap: 7px !important;
-  margin: 0 !important;
-  white-space: normal !important;
-}
-.ecocane-header .ecocane-header-phone__details,
-.ecocane-header .ecocane-header-email__details {
-  display: flex !important;
-  flex-direction: column !important;
-  min-width: 0 !important;
-  gap: 1px !important;
-}
-.ecocane-header .ecocane-header-phone__label,
-.ecocane-header .ecocane-header-email__label {
-  display: none !important;
-}
-.ecocane-header .ecocane-header-phone__number,
-.ecocane-header .ecocane-header-email__address {
-  display: block !important;
-  max-width: 100% !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  white-space: nowrap !important;
-  overflow-wrap: normal !important;
-  font-size: 11px !important;
-  line-height: 1.2 !important;
-}
-.ecocane-header .ecocane-header-messengers {
-  grid-area: messengers !important;
-  display: flex !important;
-  align-self: center !important;
-  justify-self: end !important;
-  margin: 0 !important;
-  min-width: 0 !important;
-}
-.ecocane-header .ecocane-header-messengers__links {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
-  gap: 3px !important;
-}
-.ecocane-header .ecocane-header-messenger {
-  display: inline-flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  box-sizing: border-box !important;
-  width: 46px !important;
-  min-width: 46px !important;
-  min-height: 19px !important;
-  padding: 2px 4px !important;
-  border-radius: 6px !important;
-  font-size: 9px !important;
-  gap: 0 !important;
-}
-.ecocane-header .ecocane-header-messenger__icon {
-  display: none !important;
-}
-.ecocane-header .ecocane-header-messenger__name {
-  display: inline !important;
-}
-.ecocane-header .wc-block-mini-cart,
-.ecocane-header .wp-block-woocommerce-mini-cart,
-.ecocane-header .wp-block-woocommerce-customer-account {
-  display: none !important;
-}
-@media (max-width: 820px) {
-  .ecocane-header {
-    grid-template-columns: 132px minmax(0, 1fr) 44px !important;
-    grid-template-rows: 31px 31px auto !important;
-    column-gap: 8px !important;
-    row-gap: 2px !important;
-    padding: 7px 12px !important;
-  }
-  .ecocane-header > .ecocane-brand { width: 126px !important; max-height: 58px !important; }
-  .ecocane-header > .ecocane-brand img { max-height: 58px !important; }
-  .ecocane-header .ecocane-header-phone,
-  .ecocane-header .ecocane-header-email { gap: 5px !important; }
-  .ecocane-header .ecocane-header-phone__icon,
-  .ecocane-header .ecocane-header-email__icon {
-    flex: 0 0 21px !important;
-    width: 21px !important;
-    height: 21px !important;
-  }
-  .ecocane-header .ecocane-header-phone__icon svg,
-  .ecocane-header .ecocane-header-email__icon svg { width: 15px !important; height: 15px !important; }
-  .ecocane-header .ecocane-header-phone__number,
-  .ecocane-header .ecocane-header-email__address { font-size: 9px !important; }
-  .ecocane-header .ecocane-header-messenger {
-    width: 42px !important;
-    min-width: 42px !important;
-    min-height: 18px !important;
-    font-size: 8px !important;
-  }
-  .ecocane-header > .ecocane-category-nav { gap: 4px 10px !important; padding-top: 4px !important; }
-  .ecocane-header > .ecocane-category-nav a { font-size: 11px !important; }
-}
-@media (max-width: 420px) {
-  .ecocane-header {
-    grid-template-columns: 112px minmax(0, 1fr) 38px !important;
-    grid-template-rows: 29px 29px auto !important;
-    column-gap: 6px !important;
-    padding: 6px 9px !important;
-  }
-  .ecocane-header > .ecocane-brand { width: 108px !important; max-height: 50px !important; }
-  .ecocane-header > .ecocane-brand img { max-height: 50px !important; }
-  .ecocane-header .ecocane-header-phone,
-  .ecocane-header .ecocane-header-email { gap: 3px !important; }
-  .ecocane-header .ecocane-header-phone__icon,
-  .ecocane-header .ecocane-header-email__icon {
-    flex: 0 0 17px !important;
-    width: 17px !important;
-    height: 17px !important;
-  }
-  .ecocane-header .ecocane-header-phone__icon svg,
-  .ecocane-header .ecocane-header-email__icon svg { width: 13px !important; height: 13px !important; }
-  .ecocane-header .ecocane-header-phone__number,
-  .ecocane-header .ecocane-header-email__address { font-size: 8px !important; }
-  .ecocane-header .ecocane-header-messenger {
-    width: 36px !important;
-    min-width: 36px !important;
-    min-height: 17px !important;
-    font-size: 7.5px !important;
-  }
-  .ecocane-header .ecocane-header-messengers__links { gap: 2px !important; }
-  .ecocane-header > .ecocane-category-nav { gap: 3px 8px !important; }
-  .ecocane-header > .ecocane-category-nav a { font-size: 10px !important; }
-}
-
