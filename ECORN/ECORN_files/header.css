@@ -495,3 +495,18 @@ body.admin-bar header.wp-block-template-part:has(> .ecocane-header) {
   .ecocane-header-phone__icon { flex-basis: 30px; width: 30px; height: 30px; }
   .ecocane-header-email__address { font-size: 11px; }
 }
+
+
+/* Мессенджеры в шапке: компактный блок под телефоном и почтой. */
+.ecocane-header-messengers { display:flex; flex-direction:column; align-items:flex-start; gap:4px; min-width:0; margin-top:2px; }
+.ecocane-header-messengers__label { color:rgba(255,255,255,.78); font-size:9px; font-weight:600; letter-spacing:.075em; line-height:1.1; white-space:nowrap; }
+.ecocane-header-messengers__links { display:flex; align-items:center; flex-wrap:nowrap; gap:5px; }
+.ecocane-header-messenger { display:inline-flex; align-items:center; gap:5px; min-height:28px; padding:2px 7px 2px 3px; border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.08); color:#fff !important; font-size:10px; font-weight:700; line-height:1; text-decoration:none !important; white-space:nowrap; transition:background-color .18s ease,border-color .18s ease,transform .18s ease; pointer-events:none; cursor:default; }
+.ecocane-header-messenger__icon { display:inline-flex; flex:0 0 22px; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; color:#fff; font-size:12px; font-weight:800; line-height:1; }
+.ecocane-header-messenger__icon svg { display:block; width:13px; height:13px; fill:currentColor; }
+.ecocane-header-messenger--whatsapp .ecocane-header-messenger__icon { background:#25D366; }
+.ecocane-header-messenger--telegram .ecocane-header-messenger__icon { background:#229ED9; }
+.ecocane-header-messenger--max .ecocane-header-messenger__icon { background:#168DE2; font-size:11px; }
+.ecocane-header-messenger__name { color:#fff; }
+.ecocane-header-messenger:focus-visible { outline:2px solid #fff; outline-offset:3px; }
+@media (hover:hover) { .ecocane-header-messenger:hover { border-color:rgba(255,255,255,.42); background:rgba(255,255,255,.16); transform:translateY(-1px); } }
