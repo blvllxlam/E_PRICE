@@ -579,202 +579,195 @@
   .ecocane-header-email__address { max-width:68px; font-size:7px; }
 }
 
-/* Итоговая компоновка шапки: контакты слева, вертикальные мессенджеры справа. */
-.ecocane-header-contacts {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 40px;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  align-items: center;
-  align-content: center;
-  column-gap: 8px;
-  row-gap: 3px;
-  min-width: 0;
-  margin-right: 0;
-}
 
-.ecocane-header-phone {
-  grid-column: 1;
-  grid-row: 1;
-  min-width: 0;
+/* Финальная структура шапки прайса: логотип, контакты, вертикальные мессенджеры; навигация отдельной строкой. */
+.ecocane-header {
+  display: grid !important;
+  grid-template-columns: 180px minmax(0, 1fr) 50px !important;
+  grid-template-rows: 34px 34px auto !important;
+  grid-template-areas:
+    "brand phone messengers"
+    "brand email messengers"
+    "nav nav nav" !important;
+  align-items: center !important;
+  column-gap: 12px !important;
+  row-gap: 2px !important;
+  padding: 8px 18px !important;
+  box-sizing: border-box !important;
 }
-
-.ecocane-header-email {
-  grid-column: 1;
-  grid-row: 2;
-  min-width: 0;
+.ecocane-header > .ecocane-brand {
+  grid-area: brand !important;
+  justify-self: start !important;
+  align-self: center !important;
+  width: 170px !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 68px !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
-
-.ecocane-header-messengers {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: center;
-  justify-self: end;
-  margin: 0;
+.ecocane-header > .ecocane-brand img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: 68px !important;
+  height: auto !important;
+  object-fit: contain !important;
 }
-
-.ecocane-header-messengers__links {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 3px;
+.ecocane-header > .ecocane-category-nav {
+  grid-area: nav !important;
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 4px 14px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 5px 0 0 !important;
 }
-
-.ecocane-header-messenger {
-  box-sizing: border-box;
-  justify-content: center;
-  width: 40px;
-  min-width: 40px;
-  min-height: 21px;
-  padding: 2px 3px;
-  border-radius: 6px;
-  gap: 0;
+.ecocane-header > .wp-block-group.is-nowrap.is-layout-flex {
+  display: contents !important;
 }
-
-.ecocane-header-messenger__icon {
-  display: none;
+.ecocane-header .ecocane-header-contacts {
+  display: contents !important;
 }
-
-.ecocane-header-email__details,
-.ecocane-header-phone__details {
-  min-width: 0;
+.ecocane-header .ecocane-header-phone {
+  grid-area: phone !important;
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  gap: 7px !important;
+  margin: 0 !important;
 }
-
-.ecocane-header-email__address {
-  display: block;
-  max-width: none;
-  overflow: visible;
-  text-overflow: clip;
-  white-space: normal;
-  overflow-wrap: anywhere;
+.ecocane-header .ecocane-header-email {
+  grid-area: email !important;
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  gap: 7px !important;
+  margin: 0 !important;
+  white-space: normal !important;
 }
-
-/* Возвращаем компактную высоту верхней части шапки. */
-@media (max-width: 1100px) {
+.ecocane-header .ecocane-header-phone__details,
+.ecocane-header .ecocane-header-email__details {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  gap: 1px !important;
+}
+.ecocane-header .ecocane-header-phone__label,
+.ecocane-header .ecocane-header-email__label {
+  display: none !important;
+}
+.ecocane-header .ecocane-header-phone__number,
+.ecocane-header .ecocane-header-email__address {
+  display: block !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+}
+.ecocane-header .ecocane-header-messengers {
+  grid-area: messengers !important;
+  display: flex !important;
+  align-self: center !important;
+  justify-self: end !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+}
+.ecocane-header .ecocane-header-messengers__links {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 3px !important;
+}
+.ecocane-header .ecocane-header-messenger {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  width: 46px !important;
+  min-width: 46px !important;
+  min-height: 19px !important;
+  padding: 2px 4px !important;
+  border-radius: 6px !important;
+  font-size: 9px !important;
+  gap: 0 !important;
+}
+.ecocane-header .ecocane-header-messenger__icon {
+  display: none !important;
+}
+.ecocane-header .ecocane-header-messenger__name {
+  display: inline !important;
+}
+.ecocane-header .wc-block-mini-cart,
+.ecocane-header .wp-block-woocommerce-mini-cart,
+.ecocane-header .wp-block-woocommerce-customer-account {
+  display: none !important;
+}
+@media (max-width: 820px) {
   .ecocane-header {
-    grid-template-rows: 90px;
+    grid-template-columns: 132px minmax(0, 1fr) 44px !important;
+    grid-template-rows: 31px 31px auto !important;
+    column-gap: 8px !important;
+    row-gap: 2px !important;
+    padding: 7px 12px !important;
   }
-
-  .ecocane-header-contacts {
-    column-gap: 6px;
-    row-gap: 2px;
+  .ecocane-header > .ecocane-brand { width: 126px !important; max-height: 58px !important; }
+  .ecocane-header > .ecocane-brand img { max-height: 58px !important; }
+  .ecocane-header .ecocane-header-phone,
+  .ecocane-header .ecocane-header-email { gap: 5px !important; }
+  .ecocane-header .ecocane-header-phone__icon,
+  .ecocane-header .ecocane-header-email__icon {
+    flex: 0 0 21px !important;
+    width: 21px !important;
+    height: 21px !important;
   }
-
-  .ecocane-header-messengers__links {
-    gap: 2px;
+  .ecocane-header .ecocane-header-phone__icon svg,
+  .ecocane-header .ecocane-header-email__icon svg { width: 15px !important; height: 15px !important; }
+  .ecocane-header .ecocane-header-phone__number,
+  .ecocane-header .ecocane-header-email__address { font-size: 9px !important; }
+  .ecocane-header .ecocane-header-messenger {
+    width: 42px !important;
+    min-width: 42px !important;
+    min-height: 18px !important;
+    font-size: 8px !important;
   }
-
-  .ecocane-header-messenger {
-    min-height: 20px;
-  }
+  .ecocane-header > .ecocane-category-nav { gap: 4px 10px !important; padding-top: 4px !important; }
+  .ecocane-header > .ecocane-category-nav a { font-size: 11px !important; }
 }
-
-@media (max-width: 782px) {
-  .ecocane-header-contacts {
-    grid-template-columns: minmax(0, 1fr) 34px;
-    column-gap: 4px;
-  }
-
-  .ecocane-header-messenger {
-    width: 34px;
-    min-width: 34px;
-    min-height: 19px;
-    font-size: 9px;
-  }
-
-  .ecocane-header-phone__number {
-    font-size: 10px;
-  }
-
-  .ecocane-header-email__address {
-    font-size: 9px;
-  }
-}
-
-@media (max-width: 520px) {
+@media (max-width: 420px) {
   .ecocane-header {
-    grid-template-rows: 78px;
+    grid-template-columns: 112px minmax(0, 1fr) 38px !important;
+    grid-template-rows: 29px 29px auto !important;
+    column-gap: 6px !important;
+    padding: 6px 9px !important;
   }
-
-  .ecocane-header-contacts {
-    grid-template-columns: minmax(0, 1fr) 30px;
-    column-gap: 3px;
-    row-gap: 2px;
+  .ecocane-header > .ecocane-brand { width: 108px !important; max-height: 50px !important; }
+  .ecocane-header > .ecocane-brand img { max-height: 50px !important; }
+  .ecocane-header .ecocane-header-phone,
+  .ecocane-header .ecocane-header-email { gap: 3px !important; }
+  .ecocane-header .ecocane-header-phone__icon,
+  .ecocane-header .ecocane-header-email__icon {
+    flex: 0 0 17px !important;
+    width: 17px !important;
+    height: 17px !important;
   }
-
-  .ecocane-header-phone,
-  .ecocane-header-email {
-    gap: 2px;
+  .ecocane-header .ecocane-header-phone__icon svg,
+  .ecocane-header .ecocane-header-email__icon svg { width: 13px !important; height: 13px !important; }
+  .ecocane-header .ecocane-header-phone__number,
+  .ecocane-header .ecocane-header-email__address { font-size: 8px !important; }
+  .ecocane-header .ecocane-header-messenger {
+    width: 36px !important;
+    min-width: 36px !important;
+    min-height: 17px !important;
+    font-size: 7.5px !important;
   }
-
-  .ecocane-header-phone__icon,
-  .ecocane-header-email__icon {
-    flex-basis: 18px;
-    width: 18px;
-    height: 18px;
-  }
-
-  .ecocane-header-phone__icon svg,
-  .ecocane-header-email__icon svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .ecocane-header-phone__number {
-    font-size: 9px;
-  }
-
-  .ecocane-header-email__address {
-    font-size: 8px;
-    line-height: 1.1;
-  }
-
-  .ecocane-header-messenger {
-    width: 30px;
-    min-width: 30px;
-    min-height: 18px;
-    font-size: 8px;
-  }
-}
-
-@media (max-width: 359px) {
-  .ecocane-header {
-    grid-template-rows: 72px;
-  }
-
-  .ecocane-header-contacts {
-    grid-template-columns: minmax(0, 1fr) 28px;
-    column-gap: 2px;
-  }
-
-  .ecocane-header-email__icon {
-    display: none;
-  }
-
-  .ecocane-header-phone__icon {
-    flex-basis: 16px;
-    width: 16px;
-    height: 16px;
-  }
-
-  .ecocane-header-phone__icon svg {
-    width: 13px;
-    height: 13px;
-  }
-
-  .ecocane-header-phone__number {
-    font-size: 8px;
-  }
-
-  .ecocane-header-email__address {
-    font-size: 7.5px;
-    overflow-wrap: anywhere;
-  }
-
-  .ecocane-header-messenger {
-    width: 28px;
-    min-width: 28px;
-    min-height: 17px;
-    font-size: 7.5px;
-  }
+  .ecocane-header .ecocane-header-messengers__links { gap: 2px !important; }
+  .ecocane-header > .ecocane-category-nav { gap: 3px 8px !important; }
+  .ecocane-header > .ecocane-category-nav a { font-size: 10px !important; }
 }
 
